@@ -1,0 +1,63 @@
+{
+    "name": "@arpadroid/framework",
+    "version": "1.0.0",
+    "description": "The whole collection of arpadroid's modules in one package.",
+    "main": "index.js",
+    "types": "./src/types.d.ts",
+    "type": "module",
+    "scripts": {
+        "build:project": "node ./scripts/build-project.js",
+        "test": "node ./node_modules/@arpadroid/module/scripts/test-projects.mjs --build --storybook --jest --ci",
+        "install:project": "node ./node_modules/@arpadroid/module/scripts/install-projects.mjs",
+        "stop:storybook:ci": "pm2 stop srv-storybook && pm2 delete srv-storybook",
+        "storybook": "npm run build -- --storybook=6007 --watch",
+        "build": "node ./node_modules/@arpadroid/module/scripts/build-project.mjs --project=framework --minify"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arpadroid/framework.git"
+    },
+    "keywords": [
+        "arpadroid",
+        "package",
+        "manager"
+    ],
+    "author": "Andres Vaquero / @arpadroid",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/arpadroid/framework/issues"
+    },
+    "homepage": "https://github.com/arpadroid/framework#readme",
+    "dependencies": {
+        "@types/node": "^22.10.10",
+        "@types/react": "^19.0.8",
+        "fs.promises": "^0.1.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.23.9",
+        "@babel/plugin-syntax-import-assertions": "^7.23.3",
+        "@babel/preset-env": "^7.23.9",
+        "babel-jest": "^29.7.0",
+        "babel-loader": "^9.1.3",
+        "glob": "^11.0.0",
+        "recursive-copy": "^2.0.14",
+        "typescript": "^5.4.2",
+        "yargs": "^17.7.2"
+    },
+    "peerDependencies": {
+        "@arpadroid/application": "file:../application",
+        "@arpadroid/context": "file:../context",
+        "@arpadroid/forms": "file:../forms",
+        "@arpadroid/gallery": "file:../gallery",
+        "@arpadroid/i18n": "file:../i18n",
+        "@arpadroid/lists": "file:../lists",
+        "@arpadroid/messages": "file:../messages",
+        "@arpadroid/module": "file:../module",
+        "@arpadroid/navigation": "file:../navigation",
+        "@arpadroid/resources": "file:../resources",
+        "@arpadroid/services": "file:../services",
+        "@arpadroid/stylesheet-bundler": "file:../stylesheet-bundler",
+        "@arpadroid/tools": "file:../tools",
+        "@arpadroid/ui": "file:../ui"
+    }
+}
