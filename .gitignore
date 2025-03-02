@@ -4,3 +4,5 @@ bundle-stats.html
 .tsbuildinfo
 .tmp/
 src/i18n
+*.min.css
+*.bundled.css
