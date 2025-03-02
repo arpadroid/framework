@@ -1,16 +1,22 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import path from 'path';
 import copy from 'recursive-copy';
 import { getBuild } from '@arpadroid/module';
+import { existsSync, rmSync } from 'fs';
 const { build = {}, plugins, project } = getBuild('framework', 'uiComponent') || {};
 
 Array.isArray(plugins) &&
     plugins?.push({
         name: 'compile-types',
-        buildEnd: () => {
+        buildEnd: async () => {
+            const typesPath = path.join(project.path, 'dist', '@types');
+            if (existsSync(typesPath)) {
+                await rmSync(typesPath, { recursive: true, force: true });
+            }
             project?.getArpadroidDependencies().forEach(async dep => {
                 copy(
                     path.join(project.path, 'node_modules', '@arpadroid', dep, 'dist', '@types'),
-                    path.join(project.path, 'dist', '@types', dep),
+                    path.join(typesPath, dep),
                     error => {
                         error && console.error('Copy failed', error);
                     }

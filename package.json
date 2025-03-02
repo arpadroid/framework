@@ -7,7 +7,7 @@
     "type": "module",
     "scripts": {
         "build:project": "node ./scripts/build-project.js",
-        "test": "node ./node_modules/@arpadroid/module/scripts/test-projects.mjs --build --storybook --jest --ci",
+        "test": "node ./node_modules/@arpadroid/module/scripts/test-project.mjs --project=framework --storybook --jest --port=6007",
         "install:project": "node ./node_modules/@arpadroid/module/scripts/install-projects.mjs",
         "stop:storybook:ci": "pm2 stop srv-storybook && pm2 delete srv-storybook",
         "storybook": "npm run build -- --storybook=6007 --watch",
