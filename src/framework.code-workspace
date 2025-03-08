@@ -1,73 +1,196 @@
 {
-	"folders": [
-		{
-			"name": "framework",
-			"path": ".."
-		},
-		{
-			"name": "application",
-			"path": "../../application"
-		},
-		{
-			"name": "arpadroid",
-			"path": "../../arpadroid"
-		},
-		{
-			"name": "context",
-			"path": "../../context"
-		},
-		{
-			"name": "forms",
-			"path": "../../forms"
-		},
-		{
-			"name": "gallery",
-			"path": "../../gallery"
-		},
-		{
-			"name": "i18n",
-			"path": "../../i18n"
-		},
-		{
-			"name": "lib",
-			"path": "../../lib"
-		},
-		{
-			"name": "lists",
-			"path": "../../lists"
-		},
-		{
-			"name": "messages",
-			"path": "../../messages"
-		},
-		{
-			"name": "module",
-			"path": "../../module"
-		},
-		{
-			"name": "navigation",
-			"path": "../../navigation"
-		},
-		{
-			"name": "resources",
-			"path": "../../resources"
-		},
-		{
-			"name": "services",
-			"path": "../../services"
-		},
-		{
-			"name": "stylesheet-bundler",
-			"path": "../../stylesheet-bundler"
-		},
-		{
-			"name": "tools",
-			"path": "../../tools"
-		},
-		{
-			"name": "ui",
-			"path": "../../ui"
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "name": "framework",
+            "path": ".."
+        },
+        {
+            "name": "application",
+            "path": "../../application"
+        },
+        {
+            "name": "arpadroid",
+            "path": "../../arpadroid"
+        },
+        {
+            "name": "context",
+            "path": "../../context"
+        },
+        {
+            "name": "forms",
+            "path": "../../forms"
+        },
+        {
+            "name": "gallery",
+            "path": "../../gallery"
+        },
+        {
+            "name": "i18n",
+            "path": "../../i18n"
+        },
+        {
+            "name": "lib",
+            "path": "../../lib"
+        },
+        {
+            "name": "lists",
+            "path": "../../lists"
+        },
+        {
+            "name": "messages",
+            "path": "../../messages"
+        },
+        {
+            "name": "module",
+            "path": "../../module"
+        },
+        {
+            "name": "navigation",
+            "path": "../../navigation"
+        },
+        {
+            "name": "resources",
+            "path": "../../resources"
+        },
+        {
+            "name": "services",
+            "path": "../../services"
+        },
+        {
+            "name": "stylesheet-bundler",
+            "path": "../../stylesheet-bundler"
+        },
+        {
+            "name": "tools",
+            "path": "../../tools"
+        },
+        {
+            "name": "ui",
+            "path": "../../ui"
+        }
+    ],
+    "settings": {
+        /**
+         * Editor
+         */
+        "editor.tabSize": 4,
+        "editor.suggest.snippetsPreventQuickSuggestions": true,
+        "editor.formatOnSave": false,
+        "editor.autoIndent": "full",
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": true,
+        "editor.wordWrap": "off",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.snippetSuggestions": "top",
+        "editor.inlineSuggest.enabled": true,
+        "editor.largeFileOptimizations": false,
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "never"
+        },
+        "workbench.editor.enablePreview": false,
+        "explorer.confirmDelete": true,
+        "explorer.confirmDragAndDrop": true,
+        "git.enableSmartCommit": true,
+        "search.exclude": {
+            "**/*.code-search": false,
+            "**/*.compiled.css": true,
+            "**/*.min.css": true,
+            "**/*.min.js": true
+        },
+        "search.useGlobalIgnoreFiles": true,
+        "settingsSync.ignoredSettings": [],
+        "settingsSync.ignoredExtensions": [],
+        /**
+         * Eslint
+         */
+        "eslint.codeActionsOnSave.rules": null,
+        "eslint.probe": [
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "html",
+            "vue",
+            "markdown"
+        ],
+        "eslint.nodePath": "../node_modules/@arpadroid/module/node_modules",
+        "eslint.validate": ["javascript", "typescript", "html"],
+        "eslint.useFlatConfig": true,
+        "eslint.execArgv": null,
+        "eslint.rules.customizations": [],
+        "eslint.options": {
+            "overrideConfigFile": "../module/src/eslint/js/.eslintrc.js"
+        },
+        /**
+         * Formatters
+         */
+        "[css]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[jsonc]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[apacheconf]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[html]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "html-fmt-vscode.indentSize": 4,
+        "emmet.includeLanguages": {
+            "ejs": "html",
+            "javascript": "javascriptreact"
+        },
+        "cSpell.userWords": ["arpa", "arpadroid", "endregion", "labelledby", "sonarjs", "stylesheet"],
+        "[javascriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "files.associations": {
+            "*.php": "php"
+        },
+        /**
+         * Copilot
+         */
+        "github.copilot.editor.enableAutoCompletions": true,
+        "github.copilot.enable": {
+            "*": true,
+            "plaintext": false,
+            "markdown": false,
+            "scminput": false
+        },
+
+        /**
+         * JS Doc
+         */
+        "jsdoc-generator.includeParenthesisForMultipleTypes": false,
+        "jsdoc-generator.includeAsync": false,
+        "jsdoc-generator.includeExport": false,
+
+        "terminal.integrated.defaultProfile.osx": "bash",
+        "terminal.integrated.profiles.osx": {
+            "bash": {
+                "path": "bash",
+                "args": ["-l"]
+            }
+        },
+        /**
+         * TypeScript
+         */
+        "typescript.preferences.importModuleSpecifier": "relative",
+        "typescript.preferences.useAliasesForRenames": false,
+        "typescript.preferences.autoImportFileExcludePatterns": ["*.js"]
+    }
 }
