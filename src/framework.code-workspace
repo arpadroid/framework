@@ -114,7 +114,7 @@
             "vue",
             "markdown"
         ],
-        "eslint.nodePath": "../node_modules/@arpadroid/module/node_modules",
+        "eslint.nodePath": "../module/node_modules",
         "eslint.validate": ["javascript", "typescript", "html"],
         "eslint.useFlatConfig": true,
         "eslint.execArgv": null,
