@@ -11,6 +11,7 @@
         "install:project": "node ./node_modules/@arpadroid/module/scripts/install-projects.mjs",
         "stop:storybook:ci": "pm2 stop srv-storybook && pm2 delete srv-storybook",
         "storybook": "npm run build -- --storybook=6007 --watch",
+        "dev": "npm run storybook",
         "build": "node ./node_modules/@arpadroid/module/scripts/build-project.mjs --project=framework --minify"
     },
     "repository": {
