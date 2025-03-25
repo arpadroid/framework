@@ -13,7 +13,7 @@ Array.isArray(plugins) &&
             if (existsSync(typesPath)) {
                 await rmSync(typesPath, { recursive: true, force: true });
             }
-            project?.getArpadroidDependencies().forEach(async dep => {
+            project?.getDependencies().forEach(async dep => {
                 copy(
                     path.join(project.path, 'node_modules', '@arpadroid', dep, 'dist', '@types'),
                     path.join(typesPath, dep),

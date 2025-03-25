@@ -11,7 +11,7 @@ const cwd = process.cwd();
 const arpadroid = new Project('framework');
 const projects =
     (PROJECT && [new Project(PROJECT)]) ||
-    arpadroid.getArpadroidDependencies().map(dep => {
+    arpadroid.getDependencies().map(dep => {
         return new Project(dep, { path: fs.realpathSync(`${cwd}/../${dep}`) });
     });
 

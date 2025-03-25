@@ -38,7 +38,7 @@ async function copyAssets(src, dest) {
 const stories = [];
 const staticDirs = [];
 
-project.getArpadroidDependencies().forEach(dep => {
+project.getDependencies().forEach(dep => {
     if (dep === 'module') return;
     const basePath = resolve(`../${dep}`);
     stories.push(basePath + '/src/**/*.stories.@(js|jsx|mjs|ts|tsx)');
