@@ -5,6 +5,28 @@ import { Router, APIService } from '@arpadroid/services';
 
 export default {
     ...config,
+    parameters: {
+        ...config.parameters,
+        options: {
+            ...config.parameters.options,
+            storySort: {
+                order: [
+                    'Application',
+                    'Forms',
+                    ['Form', 'Field', 'Fields', 'Components'],
+                    'Lists',
+                    ['List', 'List Item', 'Components', 'Controls', 'Lists'],
+                    'Gallery',
+                    ['Gallery', 'Gallery Item', 'Components'],
+                    'UI',
+                    ['Components', 'Buttons', 'Dialogs'],
+                    'Navigation',
+                    'Messages',
+                    'I18n'
+                ]
+            }
+        }
+    },
     decorators: [
         ...config.decorators,
         bootstrapDecorator(() => {
