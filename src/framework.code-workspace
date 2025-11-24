@@ -167,7 +167,7 @@
         "github.copilot.editor.enableAutoCompletions": true,
         "github.copilot.enable": {
             "*": true,
-            "plaintext": false,
+            "plaintext": true,
             "markdown": true,
             "scminput": false
         },
