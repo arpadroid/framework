@@ -1,9 +1,9 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
 import config from '@arpadroid/module/storybook/main';
-import Project from '../../module/src/projectBuilder/project.mjs';
+import Project from '../../module/src/project/project.mjs';
 import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { join, resolve } from 'path';
-const project = new Project('framework', 'uiComponent');
+const project = new Project('framework', { buildType: 'uiComponent' });
 
 /**
  * Recursively copies the contents of a directory to another directory.

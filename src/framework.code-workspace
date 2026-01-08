@@ -57,8 +57,8 @@
             "path": "../../services"
         },
         {
-            "name": "stylesheet-bundler",
-            "path": "../../stylesheet-bundler"
+            "name": "style-bun",
+            "path": "../../style-bun"
         },
         {
             "name": "tools",
