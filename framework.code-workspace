@@ -1,0 +1,53 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../application"
+		},
+		{
+			"path": "../arpadroid"
+		},
+		{
+			"path": "../context"
+		},
+		{
+			"path": "../forms"
+		},
+		{
+			"path": "../gallery"
+		},
+		{
+			"path": "../i18n"
+		},
+		{
+			"path": "../lists"
+		},
+		{
+			"path": "../messages"
+		},
+		{
+			"path": "../module"
+		},
+		{
+			"path": "../navigation"
+		},
+		{
+			"path": "../resources"
+		},
+		{
+			"path": "../services"
+		},
+		{
+			"path": "../style-bun"
+		},
+		{
+			"path": "../tools"
+		},
+		{
+			"path": "../ui"
+		}
+	],
+	"settings": {}
+}
