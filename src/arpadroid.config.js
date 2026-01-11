@@ -4,6 +4,7 @@
 /** @type {BuildConfigType} */
 const config = {
     buildTypes: true,
+    buildType: 'uiComponent',
     deps: [
         'tools',
         'i18n',

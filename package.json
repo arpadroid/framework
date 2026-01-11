@@ -8,6 +8,7 @@
     "scripts": {
         "build:project": "node ./scripts/build-project.js",
         "test": "node ./scripts/test-projects.mjs --port=6007 --storybook --jest",
+        "clean": "rm -rf ./dist ./node_modules package-lock.json",
         "install:projects": "node ./scripts/install-projects.mjs",
         "stop:storybook:ci": "pm2 stop srv-storybook && pm2 delete srv-storybook",
         "storybook": "npm run build -- --storybook=6007 --watch",
@@ -57,7 +58,7 @@
         "@arpadroid/navigation": "file:../navigation",
         "@arpadroid/resources": "file:../resources",
         "@arpadroid/services": "file:../services",
-        "@arpadroid/stylesheet-bundler": "file:../stylesheet-bundler",
+        "@arpadroid/style-bun": "file:../style-bun",
         "@arpadroid/tools": "file:../tools",
         "@arpadroid/ui": "file:../ui"
     }
