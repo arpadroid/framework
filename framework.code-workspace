@@ -47,6 +47,15 @@
 		},
 		{
 			"path": "../ui"
+		},
+		{
+			"path": "../node-tools"
+		},
+		{
+			"path": "../tools-iso"
+		},
+		{
+			"path": "../logger"
 		}
 	],
 	"settings": {}

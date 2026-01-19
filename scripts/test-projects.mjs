@@ -1,6 +1,6 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
 import { Project } from '@arpadroid/module';
-import { log } from '@arpadroid/module/logger';
+import { log } from '@arpadroid/logger';
 import { hideBin } from 'yargs/helpers';
 import fs from 'fs';
 import yargs from 'yargs';

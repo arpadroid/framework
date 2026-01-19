@@ -54,6 +54,7 @@
         "@arpadroid/i18n": "file:../i18n",
         "@arpadroid/lists": "file:../lists",
         "@arpadroid/messages": "file:../messages",
+        "@arpadroid/logger": "file:../logger",
         "@arpadroid/module": "file:../module",
         "@arpadroid/navigation": "file:../navigation",
         "@arpadroid/resources": "file:../resources",
