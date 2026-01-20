@@ -56,6 +56,9 @@
 		},
 		{
 			"path": "../logger"
+		},
+		{
+			"path": "../signals"
 		}
 	],
 	"settings": {}
