@@ -49,9 +49,6 @@
 			"path": "../ui"
 		},
 		{
-			"path": "../node-tools"
-		},
-		{
 			"path": "../tools-iso"
 		},
 		{
@@ -59,6 +56,9 @@
 		},
 		{
 			"path": "../signals"
+		},
+		{
+			"path": "../tools-node"
 		}
 	],
 	"settings": {}

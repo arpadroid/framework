@@ -11,7 +11,6 @@
         "test2": "arpadroid-test --port=6007 --storybook --jest --ci",
         "clean": "rm -rf ./dist ./node_modules package-lock.json",
         "install:projects": "node ./scripts/install-projects.mjs",
-        "stop:storybook:ci": "pm2 stop srv-storybook && pm2 delete srv-storybook",
         "storybook": "npm run build -- --storybook=6007 --watch",
         "dev": "npm run storybook",
         "build": "arpadroid-build --project=framework --minify"
