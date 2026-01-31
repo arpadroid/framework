@@ -3,7 +3,15 @@ import config from '@arpadroid/module/storybook/main';
 import Project from '../../module/src/project/project.mjs';
 import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { join, resolve } from 'path';
-const project = new Project('framework', { buildType: 'uiComponent' });
+import PROJECT_STORE from '../../module/src/project/projectStore.mjs';
+
+const projectPath = resolve(process.cwd(), '..', 'framework');
+const project =
+    PROJECT_STORE.framework ||
+    new Project('framework', {
+        buildType: 'uiComponent',
+        path: projectPath
+    });
 
 /**
  * Recursively copies the contents of a directory to another directory.
@@ -35,25 +43,47 @@ async function copyAssets(src, dest) {
     }
 }
 
-const stories = [];
-const staticDirs = [];
-
-project.getDependencies().forEach(dep => {
-    if (dep === 'module') return;
-    const basePath = resolve(`../${dep}`);
-    stories.push(basePath + '/src/**/*.stories.@(js|jsx|mjs|ts|tsx)');
-
-    existsSync(basePath + '/dist') && staticDirs.push(basePath + '/dist');
-    existsSync(basePath + '/src') && staticDirs.push(basePath + '/src');
-    if (existsSync(basePath + '/assets')) {
-        staticDirs.push(basePath + '/assets');
-        copyAssets(basePath + '/assets', project.path + '/dist/assets');
+export default (async () => {
+    const stories = [];
+    const staticDirs = [];
+    await project.promise;
+    
+    // Dynamically import dependency helpers at runtime to avoid bundling/interop issues
+    let deps = [];
+    try {
+        const helpers = await import('../../module/src/project/helpers/projectBuild.helper.mjs');
+        const getAllDependencies = helpers.getAllDependencies ?? (async () => []);
+        deps = (await getAllDependencies(project)) || [];
+    } catch (err) {
+        console.error('Failed to resolve dependencies for storybook config, continuing with empty deps', err);
+        deps = [];
     }
-    existsSync(basePath + '/storybook/decorators') && staticDirs.push(basePath + '/storybook/decorators');
-});
+    // Include current project's stories and static dirs so local stories show up
+    if (existsSync(project.path + '/src')) {
+        stories.push(project.path + '/src/**/*.stories.@(js|jsx|mjs|ts|tsx)');
+        staticDirs.push(project.path + '/src');
+    }
+    existsSync(project.path + '/dist') && staticDirs.push(project.path + '/dist');
 
-export default {
-    ...config,
-    stories: [...config.stories, ...stories],
-    staticDirs: [...config.staticDirs, ...staticDirs]
-};
+    deps.forEach(dep => {
+        if (!dep) return;
+        if (dep.name === 'module') return;
+
+        const basePath = dep.path || resolve(`../${dep.name}`);
+        stories.push(basePath + '/src/**/*.stories.@(js|jsx|mjs|ts|tsx)');
+
+        existsSync(basePath + '/dist') && staticDirs.push(basePath + '/dist');
+        existsSync(basePath + '/src') && staticDirs.push(basePath + '/src');
+        if (existsSync(basePath + '/assets')) {
+            staticDirs.push(basePath + '/assets');
+            copyAssets(basePath + '/assets', project.path + '/dist/assets');
+        }
+        existsSync(basePath + '/storybook/decorators') && staticDirs.push(basePath + '/storybook/decorators');
+    });
+
+    return {
+        ...config,
+        stories: [...config.stories, ...stories],
+        staticDirs: [...config.staticDirs, ...staticDirs]
+    };
+})();

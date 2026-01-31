@@ -1,24 +1,8 @@
-/**
- * @typedef {import('@arpadroid/module').BuildConfigType} BuildConfigType
- */
-/** @type {BuildConfigType} */
+/** @type {import('@arpadroid/module').BuildConfigType} */
 const config = {
     buildTypes: true,
     buildType: 'uiComponent',
-    deps: [
-        'tools',
-        'i18n',
-        'ui',
-        'context',
-        'services',
-        'resources',
-        'lists',
-        'messages',
-        'navigation',
-        'forms',
-        'gallery',
-        'application'
-    ],
+    deps: ['tools', 'i18n', 'ui', 'context', 'services', 'resources', 'lists', 'messages', 'navigation', 'forms', 'gallery', 'application'],
     logo: `           ┓    • ┓  ┏                ┓ 
   ┏┓┏┓┏┓┏┓┏┫┏┓┏┓┓┏┫  ╋┏┓┏┓┏┳┓┏┓┓┏┏┏┓┏┓┃┏
   ┗┻┛ ┣┛┗┻┗┻┛ ┗┛┗┗┻  ┛┛ ┗┻┛┗┗┗ ┗┻┛┗┛┛ ┛┗

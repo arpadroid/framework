@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
-import { Project } from '@arpadroid/module';
+import { getAllDependencies, Project } from '@arpadroid/module';
 import { log } from '@arpadroid/logger';
 import { hideBin } from 'yargs/helpers';
 import fs from 'fs';
@@ -8,25 +8,20 @@ const argv = yargs(hideBin(process.argv)).argv;
 const PROJECT = argv.project;
 const cwd = process.cwd();
 
-const arpadroid = new Project('framework');
-const projects =
-    (PROJECT && [new Project(PROJECT)]) ||
-    arpadroid.getDependencies().map(dep => {
-        return new Project(dep, { path: fs.realpathSync(`${cwd}/../${dep}`) });
-    });
+const framework = new Project('framework');
 
 /**
  * Run tests for all projects.
  */
 async function runTests() {
-    const project = projects.shift();
-    try {
-        await project.test();
-    } catch (error) {
-        log.error(error);
-    }
-    if (projects.length) {
-        runTests();
+    await framework.promise;
+    const projects = (await getAllDependencies(framework)).map(dep => dep.project);
+    for (const project of projects) {
+        try {
+            await project.test({ ci: true, jest: true, storybook: true });
+        } catch (error) {
+            log.error(error);
+        }
     }
 }
 

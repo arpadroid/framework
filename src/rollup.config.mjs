@@ -1,6 +1,6 @@
 import path from 'path';
 import copy from 'recursive-copy';
-import { getBuild } from '@arpadroid/module';
+import { getBuild, getAllDependencies } from '@arpadroid/module';
 import { existsSync, rmSync } from 'fs';
 const { build = {}, plugins, project } = getBuild('framework') || {};
 
@@ -13,8 +13,11 @@ Array.isArray(plugins) &&
             if (existsSync(typesPath)) {
                 await rmSync(typesPath, { recursive: true, force: true });
             }
-            project?.getDependencies().forEach(async dep => {
-                copy(path.join(project.path || '', 'node_modules', '@arpadroid', dep, 'dist', '@types'), path.join(typesPath, dep), error => {
+            const deps = await getAllDependencies(project);
+            deps.forEach(async dep => {
+                const depTypesPath = path.join(dep.path, 'dist', '@types');
+                // if (!existsSync(depTypesPath)) return;
+                copy(depTypesPath, path.join(typesPath, dep.name), error => {
                     error && console.error('Copy failed', error);
                 });
             });
