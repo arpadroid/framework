@@ -1,14 +1,11 @@
-import config from '@arpadroid/module/storybook/preview';
+// @ts-ignore
 import { bootstrapDecorator } from '@arpadroid/module/storybook/decorators';
 import { setService } from '@arpadroid/context';
 import { Router, APIService } from '@arpadroid/services';
 
 export default {
-    ...config,
     parameters: {
-        ...config.parameters,
         options: {
-            ...config.parameters.options,
             storySort: {
                 order: [
                     'Application',
@@ -28,9 +25,9 @@ export default {
         }
     },
     decorators: [
-        ...config.decorators,
         bootstrapDecorator(() => {
-            setService('router', new Router());
+            // @ts-ignore
+            setService('router', new Router()); // @ts-ignore
             setService('apiService', APIService);
         })
     ]

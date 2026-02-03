@@ -1,64 +1,88 @@
 {
 	"folders": [
 		{
+			"name": "framework",
 			"path": "."
 		},
 		{
-			"path": "../application"
-		},
-		{
+			"name": "arpadroid",
 			"path": "../arpadroid"
 		},
 		{
+			"name": "application",
+			"path": "../application"
+		},
+		{
+			"name": "context",
 			"path": "../context"
 		},
 		{
+			"name": "forms",
 			"path": "../forms"
 		},
 		{
+			"name": "gallery",
 			"path": "../gallery"
 		},
 		{
+			"name": "i18n",
 			"path": "../i18n"
 		},
 		{
+			"name": "lists",
 			"path": "../lists"
 		},
 		{
+			"name": "messages",
 			"path": "../messages"
 		},
 		{
-			"path": "../module"
-		},
-		{
-			"path": "../navigation"
-		},
-		{
-			"path": "../resources"
-		},
-		{
-			"path": "../services"
-		},
-		{
-			"path": "../style-bun"
-		},
-		{
-			"path": "../tools"
-		},
-		{
-			"path": "../ui"
-		},
-		{
-			"path": "../tools-iso"
-		},
-		{
+			"name": "logger",
 			"path": "../logger"
 		},
 		{
+			"name": "module",
+			"path": "../module"
+		},
+		{
+			"name": "navigation",
+			"path": "../navigation"
+		},
+		{
+			"name": "resources",
+			"path": "../resources"
+		},
+		{
+			"name": "services",
+			"path": "../services"
+		},
+		{
+			"name": "style-bun",
+			"path": "../style-bun"
+		},
+		{
+			"name": "signals",
 			"path": "../signals"
 		},
 		{
+			"name": "tools-iso",
+			"path": "../tools-iso"
+		},
+		{
+			"name": "tools-node",
 			"path": "../tools-node"
+		},
+		{
+			"name": "tools",
+			"path": "../tools"
+		},
+		{
+			"name": "themes",
+			"path": "../themes"
+		},
+		{
+			"name": "ui",
+			"path": "../ui"
 		}
 	],
 	"settings": {}
