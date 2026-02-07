@@ -16,7 +16,7 @@ Array.isArray(plugins) &&
             const deps = await getAllDependencies(project);
             deps.forEach(async dep => {
                 const depTypesPath = path.join(dep.path, 'dist', '@types');
-                // if (!existsSync(depTypesPath)) return;
+                if (!existsSync(depTypesPath)) return;
                 copy(depTypesPath, path.join(typesPath, dep.name), error => {
                     error && console.error('Copy failed', error);
                 });

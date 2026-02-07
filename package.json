@@ -7,11 +7,14 @@
     "type": "module",
     "scripts": {
         "build:project": "node ./scripts/build-project.js",
-        "test": "arpadroid-test --port=6007 --storybook --jest",
+        "test": "arpadroid-test --storybook --jest",
+        "test:watch": "npm run test -- --watch",
+        "t": "npm run test -- --slim",
+        "w": "npm run t -- --watch",
         "clean": "rm -rf ./dist ./node_modules package-lock.json",
         "install:projects": "node ./scripts/install-projects.mjs",
-        "dev": "arpadroid-build --watch --storybook=6007",
-        "build": "arpadroid-build --project=framework --minify"
+        "dev": "arpadroid-build --watch --storybook",
+        "build": "arpadroid-build"
     },
     "repository": {
         "type": "git",

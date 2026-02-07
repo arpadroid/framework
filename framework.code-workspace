@@ -5,12 +5,12 @@
 			"path": "."
 		},
 		{
-			"name": "arpadroid",
-			"path": "../arpadroid"
-		},
-		{
 			"name": "application",
 			"path": "../application"
+		},
+		{
+			"name": "arpadroid",
+			"path": "../arpadroid"
 		},
 		{
 			"name": "context",
