@@ -8,10 +8,11 @@
     "scripts": {
         "build:project": "node ./scripts/build-project.js",
         "test": "arpadroid-test --storybook --jest",
+        "test:jest": "arpadroid-test --jest",
         "test:watch": "npm run test -- --watch",
         "t": "npm run test -- --slim",
         "w": "npm run t -- --watch",
-        "clean": "rm -rf ./dist ./node_modules package-lock.json",
+        "clean": "arpadroid-clean",
         "install:projects": "node ./scripts/install-projects.mjs",
         "dev": "arpadroid-build --watch --storybook",
         "build": "arpadroid-build"
