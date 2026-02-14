@@ -9,6 +9,7 @@
         "build:project": "node ./scripts/build-project.js",
         "test": "arpadroid-test --storybook --jest",
         "test:jest": "arpadroid-test --jest",
+        "t:j": "npm run test:jest -- --slim",
         "test:watch": "npm run test -- --watch",
         "t": "npm run test -- --slim",
         "w": "npm run t -- --watch",
