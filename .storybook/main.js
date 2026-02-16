@@ -1,5 +1,5 @@
 /**
- * @typedef {import('@arpadroid/module').DependencyProjectPointerType} DependencyProjectPointerType
+ * @typedef {import('@arpadroid/module').DependencyPointerType} DependencyPointerType
  */
 import MainConfig from '@arpadroid/module/storybook/main';
 import { getAllDependencies, getProject, Project, PROJECT_STORE } from '@arpadroid/module';
@@ -24,7 +24,7 @@ const config = (async () => {
         stories.push(mainProjectPath);
     }
 
-    /** @type {DependencyProjectPointerType[]} */
+    /** @type {DependencyPointerType[]} */
     let deps = (await getAllDependencies(project)) || [];
     for (const dep of deps) {
         if (!dep || dep.name === 'module') continue;

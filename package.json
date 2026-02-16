@@ -14,6 +14,7 @@
         "t": "npm run test -- --slim",
         "w": "npm run t -- --watch",
         "clean": "arpadroid-clean",
+        "clean:projects": "arpadroid-clean-projects",
         "install:projects": "node ./scripts/install-projects.mjs",
         "dev": "arpadroid-build --watch --storybook",
         "build": "arpadroid-build"

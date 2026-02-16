@@ -19,6 +19,7 @@ const deps = (project && (await getAllDependencies(project))) || [];
 /** @type {BuildConfigType} */
 const config = {
     buildTypes: true,
+    buildManifest: true,
     buildType: 'uiComponent',
     storybook: { stories: deps.map(dep => dep.path) },
     storybook_port: 6007,
@@ -28,7 +29,10 @@ const config = {
   ┗┻┛ ┣┛┗┻┗┻┛ ┗┛┗┗┻  ┛┛ ┗┻┛┗┗┗ ┗┻┛┗┛┛ ┛┗
 ------┛-----------------------------------`,
     hooks: {
-        /** @type {import('@arpadroid/module').BuildHookType} */
+        /**
+         * Runs tests for the project and its dependencies.
+         * @type {import('@arpadroid/module').BuildHookType}
+         */
         test: async (project, payload) => {
             const testConfig = /** @type {ProjectTestConfigType} */ (payload?.testConfig);
             const { jest } = testConfig || {};
