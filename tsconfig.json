@@ -4,8 +4,8 @@
         "baseUrl": ".",
         "rootDir": "./src",
         "outDir": "./.tmp/.types",
-        "skipLibCheck": true
+        "skipLibCheck": false
     },
-    "include": ["src/**/*"],
-    "exclude": ["./node_modules", "dist"]
+    "include": ["src/**/*", "**/*.d.ts"],
+    "exclude": ["./node_modules", "./dist", "./storybook-static"]
 }
