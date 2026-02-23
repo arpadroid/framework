@@ -3,7 +3,13 @@
     "version": "1.0.0",
     "description": "The whole collection of arpadroid's modules in one package.",
     "main": "index.js",
-    "types": "./src/types.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/@types/types.compiled.d.ts",
+            "import": "./dist/arpadroid-framework.js"
+        }
+    },
+    "types": "./dist/@types/types.compiled.d.ts",
     "type": "module",
     "scripts": {
         "build:project": "node ./scripts/build-project.js",
