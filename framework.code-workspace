@@ -33,6 +33,10 @@
 			"path": "../lists"
 		},
 		{
+			"name": "list-manager",
+			"path": "../list-manager"
+		},
+		{
 			"name": "messages",
 			"path": "../messages"
 		},

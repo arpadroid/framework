@@ -66,6 +66,7 @@
         "@arpadroid/services": "file:../services",
         "@arpadroid/style-bun": "file:../style-bun",
         "@arpadroid/tools": "file:../tools",
-        "@arpadroid/ui": "file:../ui"
+        "@arpadroid/ui": "file:../ui",
+        "@arpadroid/list-manager": "file:../list-manager"
     }
 }
