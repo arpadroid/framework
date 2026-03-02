@@ -5,7 +5,8 @@
         "rootDir": "./src",
         "outDir": "./.tmp/.types",
         "skipLibCheck": false,
-        "moduleResolution": "bundler"
+        "moduleResolution": "bundler",
+        "preserveSymlinks": true
     },
     "include": ["src/**/*", "**/*.d.ts"],
     "exclude": ["./node_modules", "./dist", "./storybook-static"]
