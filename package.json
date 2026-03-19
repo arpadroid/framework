@@ -42,14 +42,13 @@
     },
     "homepage": "https://github.com/arpadroid/framework#readme",
     "dependencies": {
-        "@types/node": "^25.1.0",
+        "@types/node": "^25.5.0",
         "@types/react": "^19.0.8",
-        "fs.promises": "^0.1.2",
-        "yargs": "^17.7.2"
+        "yargs": "^18.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.23.9",
-        "@babel/preset-env": "^7.23.9",
+        "@babel/preset-env": "^7.29.2",
         "@types/yargs": "^17.0.35",
         "recursive-copy": "^2.0.14"
     },
