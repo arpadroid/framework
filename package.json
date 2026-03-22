@@ -23,6 +23,7 @@
         "clean:projects": "arpadroid-clean-projects",
         "install:projects": "node ./scripts/install-projects.mjs",
         "dev": "arpadroid-build --watch --storybook",
+        "d": "arpadroid-build --watch --storybook --slim",
         "build": "arpadroid-build",
         "check:types": "arpadroid-check-types"
     },
