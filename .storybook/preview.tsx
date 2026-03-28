@@ -3,17 +3,15 @@
  * This file imports the preview configuration from the module and exports it.
  * Add your Storybook preview configuration overrides here if needed.
  */
-/** @type { import('@storybook/web-components-vite').Preview } */
+import type { Preview } from '@storybook/web-components-vite';
 import PreviewConfig from '@arpadroid/module/storybook/preview';
 
-// @ts-ignore
 import { bootstrapDecorator } from '@arpadroid/module/storybook/decorators';
 import { setService } from '@arpadroid/context';
 import { Router, APIService } from '@arpadroid/services';
 import { mergeObjects } from '@arpadroid/tools';
 
-/** @type { import('@storybook/web-components-vite').Preview } */
-const config = mergeObjects(
+const config: Preview = mergeObjects(
     PreviewConfig,
     {
         parameters: {
