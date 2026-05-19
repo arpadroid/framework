@@ -19,9 +19,12 @@ const deps = (project && (await getAllDependencies(project))) || [];
 /** @type {BuildConfigType} */
 const config = {
     buildTypes: true,
-    buildManifest: true,
+    buildManifest: false,
     buildType: 'uiComponent',
-    storybook: { stories: deps.map(dep => dep.path) },
+    storybook: {
+        managerCache: false, 
+        stories: deps.map(dep => dep.path) 
+    },
     storybook_port: 6007,
     deps: ['tools', 'i18n', 'ui', 'context', 'services', 'resources', 'lists', 'messages', 'navigation', 'forms', 'gallery', 'application'],
     logo: `           ┓    • ┓  ┏                ┓ 
