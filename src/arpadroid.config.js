@@ -22,15 +22,11 @@ const config = {
     buildManifest: false,
     buildType: 'uiComponent',
     storybook: {
-        managerCache: false, 
-        stories: deps.map(dep => dep.path) 
+        managerCache: false,
+        stories: deps.map(dep => dep.path)
     },
     storybook_port: 6007,
     deps: ['tools', 'i18n', 'ui', 'context', 'services', 'resources', 'lists', 'messages', 'navigation', 'forms', 'gallery', 'application'],
-    logo: `           ┓    • ┓  ┏                ┓ 
-  ┏┓┏┓┏┓┏┓┏┫┏┓┏┓┓┏┫  ╋┏┓┏┓┏┳┓┏┓┓┏┏┏┓┏┓┃┏
-  ┗┻┛ ┣┛┗┻┗┻┛ ┗┛┗┗┻  ┛┛ ┗┻┛┗┗┗ ┗┻┛┗┛┛ ┛┗
-------┛-----------------------------------`,
     hooks: {
         /**
          * Runs tests for the project and its dependencies.
