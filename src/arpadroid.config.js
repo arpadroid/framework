@@ -19,14 +19,32 @@ const deps = (project && (await getAllDependencies(project))) || [];
 /** @type {BuildConfigType} */
 const config = {
     buildTypes: true,
-    buildManifest: false,
     buildType: 'uiComponent',
+    buildManifest: true,
+    manifest: {
+        skipIfExists: true,
+        buildDeps: true
+    },
     storybook: {
-        managerCache: false,
+        // managerCache: false,
         stories: deps.map(dep => dep.path)
     },
     storybook_port: 6007,
-    deps: ['tools', 'i18n', 'ui', 'context', 'services', 'resources', 'lists', 'messages', 'navigation', 'forms', 'gallery', 'application'],
+    deps: [
+        'tools',
+        'i18n',
+        'ui',
+        'context',
+        'services',
+        'resources',
+        'lists',
+        'list-manager',
+        'messages',
+        'navigation',
+        'forms',
+        'gallery',
+        'application'
+    ],
     hooks: {
         /**
          * Runs tests for the project and its dependencies.
