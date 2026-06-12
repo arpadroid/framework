@@ -1,19 +1,30 @@
 import type { DependencyPointerType } from '@arpadroid/module';
 import MainConfig from '@arpadroid/module/storybook/main';
-import { getAllDependencies, getProject, Project, PROJECT_STORE } from '@arpadroid/module';
-import { existsSync } from 'fs';
-import { join } from 'path';
+import { getAllDependencies, getProject } from '@arpadroid/module';
+import { existsSync, realpathSync } from 'fs';
+import { join, relative } from 'path';
 
 const project = getProject('framework');
+if (!project?.path) {
+    throw new Error('Framework project path not found');
+}
+const projectPath = project.path;
+
+const pattern = join('src', '**', '*.stories.@(js|jsx|mjs|ts|tsx)');
+const configDir = join(projectPath, '.storybook');
+
+function getStoryPath(packagePath: string): string {
+    const sourceRoot = existsSync(packagePath) ? realpathSync(packagePath) : packagePath;
+    return relative(configDir, join(sourceRoot, pattern));
+}
 
 const config = (async () => {
     const stories = [];
     const staticDirs = [];
-    const pattern = join('src', '**', '*.stories.@(js|jsx|mjs|ts|tsx)');
-    const path = join('..', 'node_modules', '@arpadroid');
-    const mainProjectPath = join(path, project.name, pattern);
-    const distPath = join(project.path, 'dist');
-    const srcPath = join(project.path, 'src');
+    const path = join(projectPath, 'node_modules', '@arpadroid');
+    const mainProjectPath = getStoryPath(join(path, project.name));
+    const distPath = join(projectPath, 'dist');
+    const srcPath = join(projectPath, 'src');
 
     await project.promise;
 
@@ -24,10 +35,11 @@ const config = (async () => {
 
     let deps: DependencyPointerType[] = (await getAllDependencies(project)) || [];
     for (const dep of deps) {
-        if (!dep || dep.name === 'module') continue;
-        const config = await dep.project.getBuildConfig();
+        const depProject = dep?.project;
+        if (!depProject || dep.name === 'module') continue;
+        const config = await depProject.getBuildConfig();
         if (config.buildType !== 'uiComponent') continue;
-        const depPath = join(path, dep.name, pattern);
+        const depPath = getStoryPath(dep.path);
         stories.push(depPath);
     }
 
