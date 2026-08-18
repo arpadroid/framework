@@ -18,6 +18,8 @@
         "t:j": "npm run test:jest -- --slim",
         "test:watch": "npm run test -- --watch",
         "t": "npm run test -- --slim",
+        "t:s": "arpadroid-test --slim --storybook",
+        "t:s:w": "npm run t:s -- --watch",
         "w": "npm run t -- --watch",
         "clean": "arpadroid-clean",
         "clean:projects": "arpadroid-clean-projects",
@@ -51,6 +53,12 @@
         "recursive-copy": "^2.0.14"
     },
     "peerDependencies": {
+        "@arpadroid/module": "file:../module",
+        "@arpadroid/logger": "file:../logger",
+        "@arpadroid/signals": "file:../signals",
+        "@arpadroid/tools-iso": "file:../tools-iso",
+        "@arpadroid/tools-node": "file:../tools-node",
+        "@arpadroid/tools": "file:../tools",
         "@arpadroid/application": "file:../application",
         "@arpadroid/context": "file:../context",
         "@arpadroid/forms": "file:../forms",
@@ -58,14 +66,11 @@
         "@arpadroid/i18n": "file:../i18n",
         "@arpadroid/list-manager": "file:../list-manager",
         "@arpadroid/lists": "file:../lists",
-        "@arpadroid/logger": "file:../logger",
         "@arpadroid/messages": "file:../messages",
-        "@arpadroid/module": "file:../module",
         "@arpadroid/navigation": "file:../navigation",
         "@arpadroid/resources": "file:../resources",
         "@arpadroid/services": "file:../services",
         "@arpadroid/style-bun": "file:../style-bun",
-        "@arpadroid/tools": "file:../tools",
         "@arpadroid/ui": "file:../ui"
     }
 }
