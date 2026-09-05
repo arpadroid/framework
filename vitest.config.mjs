@@ -1,2 +1,11 @@
 import cfg from '@arpadroid/module/vitest/config';
-export default cfg;
+
+const config = {
+    ...cfg,
+    test: {
+        ...cfg.test,
+        root: '../',
+        dir: '../'
+    }
+};
+export default config;

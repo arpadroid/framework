@@ -15,6 +15,11 @@ const PROJECT_NAME = argv.project ?? process.env.project;
 
 const project = getProject();
 const deps = (project && (await getAllDependencies(project))) || [];
+const stories = [];
+for (const dep of deps) {
+    const conf = await dep.project?.getConfig();
+    conf?.buildType === 'uiComponent' && stories.push(dep.path);
+}
 
 /** @type {BuildConfigType} */
 const config = {
@@ -27,7 +32,7 @@ const config = {
     },
     storybook: {
         // managerCache: false,
-        stories: deps.map(dep => dep.path)
+        stories
     },
     storybook_port: 6007,
     deps: [
