@@ -1,7 +1,6 @@
 custom-elements.json
 /node_modules
 /storybook-static
-bundle-stats.html
 /dist
 .tsbuildinfo
 .tmp/
