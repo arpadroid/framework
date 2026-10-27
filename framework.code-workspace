@@ -1,12 +1,12 @@
 {
 	"folders": [
 		{
-			"name": "module",
-			"path": "../module"
-		},
-		{
 			"name": "framework",
 			"path": "."
+		},
+		{
+			"name": "module",
+			"path": "../module"
 		},
 		{
 			"name": "logger",
